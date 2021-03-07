@@ -17,8 +17,22 @@ export class HomePage {
   }
 
   onCalculate() {
-    const imc = this.weight / (this.height * this.height);
-    this.showMessage(`IMC = ${imc.toFixed(2)}`);
+    var imc = this.weight / (this.height * this.height);
+    var classification;
+
+    if (imc < 18.5) {
+      classification = "MAGREZA";
+    } else if (((imc) => 18.5) && imc < 25) {
+      classification = "NORMAL";
+    } else if (((imc) => 25) && imc < 30) {
+      classification = "SOBREPESO";
+    } else if (((imc) => 30) && imc < 40) {
+      classification = "OBESIDADE";
+    } else {
+      classification = "OBESIDADE GRAVE";
+    }
+
+    this.showMessage(`IMC = ${imc.toFixed(2)} - ${classification}`);
   }
 
   async showMessage(msg: string) {
