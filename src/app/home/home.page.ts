@@ -12,6 +12,10 @@ export class HomePage {
 
   constructor(private toastController: ToastController) {}
 
+  isFormValid() {
+    return this.height && this.weight && this.height > 0 && this.height > 0;
+  }
+
   onCalculate() {
     const imc = this.weight / (this.height * this.height);
     this.showMessage(`IMC = ${imc.toFixed(2)}`);
